@@ -8,6 +8,6 @@ function Header() {
 }
 
 ReactDOM.render(
-    <Header/>,
+    <Header />,
     document.getElementById('root')
 );
