@@ -29,7 +29,18 @@ const Player = () => {
     );
 }
 
+const App = () => {
+    return (
+        <div className='scoreboard'>
+            <Header />
+
+            {/* Players List */}
+            <Player />
+        </div>
+    );
+}
+
 ReactDOM.render(
-    <Player />,
+    <App />,
     document.getElementById('root')
 );
