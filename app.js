@@ -40,12 +40,31 @@ class Counter extends React.Component {
         };
     }
 
+    incrementScore() {
+        //this.state.score += 1;
+        //Never change the state like the above!
+        this.setState({
+            score: this.state.score + 1
+        });
+    }
+
+    //This is one way to bind the method to the instance of Counter.  Using an arrow function at the method declaration.
+    decrementScore = () => {
+        //this.state.score -= 1;
+        //Never change the state like the above!
+        this.setState({
+            score: this.state.score - 1
+        });
+    }
+
     render() {
         return (
             <div className='counter'>
-                <button className='counter-action decrement'> - </button>
+                {/* No need to include the arrow function in this onClick handler because it's bound by the method being an arrow function up top */}
+                <button className='counter-action decrement' onClick={this.decrementScore}> - </button>
                 <span className='counter-score'>{this.state.score}</span>
-                <button className='counter-action increment'> + </button>
+                <button className='counter-action increment' onClick={() => this.incrementScore()}> + </button>
+                {/* Or you could make the onClick function call an arrow function to bind the method to the instance and get access to the state.  Or this could be rewritten like this onClick={this.incrementScore.bind(this)} */}
             </div>
         );
     }
